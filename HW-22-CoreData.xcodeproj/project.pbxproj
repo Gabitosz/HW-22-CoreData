@@ -56,15 +56,79 @@
 		03EACA932B397DB50085AEDE /* HW-22-CoreData */ = {
 			isa = PBXGroup;
 			children = (
-				03EACA942B397DB50085AEDE /* AppDelegate.swift */,
-				03EACA962B397DB50085AEDE /* SceneDelegate.swift */,
-				03EACA982B397DB50085AEDE /* UsersMainViewController.swift */,
-				03EACAA02B397DB70085AEDE /* Assets.xcassets */,
-				03EACAA22B397DB70085AEDE /* LaunchScreen.storyboard */,
-				03EACAA52B397DB70085AEDE /* Info.plist */,
-				03EACA9D2B397DB50085AEDE /* HW_22_CoreData.xcdatamodeld */,
+				03EACAAC2B3982210085AEDE /* Resources */,
+				03EACAAB2B3982190085AEDE /* Sources */,
 			);
 			path = "HW-22-CoreData";
+			sourceTree = "<group>";
+		};
+		03EACAAB2B3982190085AEDE /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				03EACAB22B3982C40085AEDE /* Service */,
+				03EACAB12B3982B80085AEDE /* Extensions */,
+				03EACAB02B3982AE0085AEDE /* Models */,
+				03EACAAF2B3982A60085AEDE /* Cells */,
+				03EACAAE2B39829D0085AEDE /* Views */,
+				03EACAAD2B39828A0085AEDE /* App */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		03EACAAC2B3982210085AEDE /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				03EACAA02B397DB70085AEDE /* Assets.xcassets */,
+				03EACAA52B397DB70085AEDE /* Info.plist */,
+				03EACAA22B397DB70085AEDE /* LaunchScreen.storyboard */,
+				03EACA9D2B397DB50085AEDE /* HW_22_CoreData.xcdatamodeld */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		03EACAAD2B39828A0085AEDE /* App */ = {
+			isa = PBXGroup;
+			children = (
+				03EACA942B397DB50085AEDE /* AppDelegate.swift */,
+				03EACA962B397DB50085AEDE /* SceneDelegate.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		03EACAAE2B39829D0085AEDE /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				03EACA982B397DB50085AEDE /* UsersMainViewController.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		03EACAAF2B3982A60085AEDE /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		03EACAB02B3982AE0085AEDE /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		03EACAB12B3982B80085AEDE /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		03EACAB22B3982C40085AEDE /* Service */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -286,7 +350,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = YX889WRPYL;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "HW-22-CoreData/Info.plist";
+				INFOPLIST_FILE = "HW-22-CoreData/Resources/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -313,7 +377,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = YX889WRPYL;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "HW-22-CoreData/Info.plist";
+				INFOPLIST_FILE = "HW-22-CoreData/Resources/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
