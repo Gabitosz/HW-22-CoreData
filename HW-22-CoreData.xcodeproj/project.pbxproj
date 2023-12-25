@@ -13,6 +13,8 @@
 		03EACA9F2B397DB50085AEDE /* HW_22_CoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 03EACA9D2B397DB50085AEDE /* HW_22_CoreData.xcdatamodeld */; };
 		03EACAA12B397DB70085AEDE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 03EACAA02B397DB70085AEDE /* Assets.xcassets */; };
 		03EACAA42B397DB70085AEDE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03EACAA22B397DB70085AEDE /* LaunchScreen.storyboard */; };
+		03EACABD2B3992A20085AEDE /* UserItem+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03EACABB2B3992A20085AEDE /* UserItem+CoreDataClass.swift */; };
+		03EACABE2B3992A20085AEDE /* UserItem+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03EACABC2B3992A20085AEDE /* UserItem+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		03EACAA02B397DB70085AEDE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		03EACAA32B397DB70085AEDE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		03EACAA52B397DB70085AEDE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		03EACABB2B3992A20085AEDE /* UserItem+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserItem+CoreDataClass.swift"; sourceTree = "<group>"; };
+		03EACABC2B3992A20085AEDE /* UserItem+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserItem+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +117,7 @@
 		03EACAB02B3982AE0085AEDE /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				03EACAC02B3992F00085AEDE /* UserItem */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -129,6 +134,15 @@
 			children = (
 			);
 			path = Service;
+			sourceTree = "<group>";
+		};
+		03EACAC02B3992F00085AEDE /* UserItem */ = {
+			isa = PBXGroup;
+			children = (
+				03EACABB2B3992A20085AEDE /* UserItem+CoreDataClass.swift */,
+				03EACABC2B3992A20085AEDE /* UserItem+CoreDataProperties.swift */,
+			);
+			path = UserItem;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -201,6 +215,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				03EACABD2B3992A20085AEDE /* UserItem+CoreDataClass.swift in Sources */,
+				03EACABE2B3992A20085AEDE /* UserItem+CoreDataProperties.swift in Sources */,
 				03EACA992B397DB50085AEDE /* UsersMainViewController.swift in Sources */,
 				03EACA952B397DB50085AEDE /* AppDelegate.swift in Sources */,
 				03EACA972B397DB50085AEDE /* SceneDelegate.swift in Sources */,
