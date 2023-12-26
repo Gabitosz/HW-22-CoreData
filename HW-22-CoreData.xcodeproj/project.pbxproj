@@ -15,6 +15,7 @@
 		03EACAA42B397DB70085AEDE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03EACAA22B397DB70085AEDE /* LaunchScreen.storyboard */; };
 		03EACABD2B3992A20085AEDE /* UserItem+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03EACABB2B3992A20085AEDE /* UserItem+CoreDataClass.swift */; };
 		03EACABE2B3992A20085AEDE /* UserItem+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03EACABC2B3992A20085AEDE /* UserItem+CoreDataProperties.swift */; };
+		03EACAC22B399BC40085AEDE /* HideKeyboard+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03EACAC12B399BC40085AEDE /* HideKeyboard+Ext.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		03EACAA52B397DB70085AEDE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		03EACABB2B3992A20085AEDE /* UserItem+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserItem+CoreDataClass.swift"; sourceTree = "<group>"; };
 		03EACABC2B3992A20085AEDE /* UserItem+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserItem+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		03EACAC12B399BC40085AEDE /* HideKeyboard+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HideKeyboard+Ext.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +127,7 @@
 		03EACAB12B3982B80085AEDE /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				03EACAC12B399BC40085AEDE /* HideKeyboard+Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -215,6 +218,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				03EACAC22B399BC40085AEDE /* HideKeyboard+Ext.swift in Sources */,
 				03EACABD2B3992A20085AEDE /* UserItem+CoreDataClass.swift in Sources */,
 				03EACABE2B3992A20085AEDE /* UserItem+CoreDataProperties.swift in Sources */,
 				03EACA992B397DB50085AEDE /* UsersMainViewController.swift in Sources */,
