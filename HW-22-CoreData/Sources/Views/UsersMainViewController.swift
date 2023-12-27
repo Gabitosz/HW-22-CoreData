@@ -12,6 +12,8 @@ class UsersMainViewController: UIViewController {
     
     // MARK: Outlets
     
+    let users = ["First User", "Second User", "Third User"]
+    
     lazy var textField: UITextField = {
         let textField = UITextField()
         textField.layer.cornerRadius = 20
@@ -41,6 +43,15 @@ class UsersMainViewController: UIViewController {
         return button
     }()
     
+    lazy var usersTable: UITableView = {
+        let table = UITableView()
+        table.translatesAutoresizingMaskIntoConstraints = false
+        table.delegate = self
+        table.dataSource = self
+        table.register(UITableViewCell.self, forCellReuseIdentifier: "defaultCell")
+        return table
+    }()
+    
     // MARK: Lifecycle
     
     override func viewDidLoad() {
@@ -55,7 +66,7 @@ class UsersMainViewController: UIViewController {
     // MARK: Setup
     
     private func setupHierarchy() {
-        let views = [textField, addButton]
+        let views = [textField, addButton, usersTable]
         views.forEach { view.addSubview($0) }
     }
     
@@ -78,12 +89,36 @@ class UsersMainViewController: UIViewController {
             addButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
             addButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -30),
             addButton.widthAnchor.constraint(equalToConstant: 100),
-            addButton.heightAnchor.constraint(equalToConstant: 30)
+            addButton.heightAnchor.constraint(equalToConstant: 30),
             
+            usersTable.topAnchor.constraint(equalTo: textField.bottomAnchor, constant: 10),
+            usersTable.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+            usersTable.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+            usersTable.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
             
             
         ])
     }
+    
+}
+
+extension UsersMainViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+}
+
+extension UsersMainViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        users.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "defaultCell", for: indexPath) 
+        cell.textLabel?.text = users[indexPath.row]
+        return cell
+    }
+    
     
 }
 
