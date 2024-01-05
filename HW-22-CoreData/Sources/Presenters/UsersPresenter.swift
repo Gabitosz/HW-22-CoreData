@@ -10,17 +10,12 @@ import Foundation
 class UsersPresenter {
     
     private let usersService = UsersService()
-  //  weak private var usersViewDelegate: UsersViewDelegate?
     
     weak var view: PresenterView?
     
     init(view: PresenterView) {
         self.view = view
     }
-    
-//    func setViewDelegate(usersViewDelegate: UsersViewDelegate?) {
-//        self.usersViewDelegate = usersViewDelegate
-//    }
     
     func presentUsers() {
         self.view?.fetch(usersData: usersService.getAllUsers())

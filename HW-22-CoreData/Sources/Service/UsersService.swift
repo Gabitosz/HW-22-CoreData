@@ -58,8 +58,6 @@ class UsersService {
             print(error)
         }
     }
-    
-    
 }
 
 protocol UsersViewDelegate: NSObjectProtocol {

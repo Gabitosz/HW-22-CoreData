@@ -13,13 +13,7 @@ class UsersMainViewController: UIViewController {
     
     var presenter:  UsersPresenter?
     
- //   let userService = UsersService()
-    
-   //private let usersPresenter = UsersPresenter(usersService: UsersService())
-    
     // MARK: Outlets
-    
-//    let users = ["First User", "Second User", "Third User"]
     
     lazy var textField: UITextField = {
         let textField = UITextField()
@@ -57,15 +51,12 @@ class UsersMainViewController: UIViewController {
         }
         let currentDate = Date()
         let gender = "Male"
-       // usersPresenter.createUser(name: userName, dateOfBirth: currentDate, gender: gender)
         presenter?.createUser(name: userName, dateOfBirth: currentDate, gender: gender)
         presenter?.presentUsers()
-        
+        textField.text = ""
         DispatchQueue.main.async {
             self.usersTable.reloadData()
         }
-        
-        
     }
     
     lazy var usersTable: UITableView = {
@@ -88,10 +79,6 @@ class UsersMainViewController: UIViewController {
         hideKeyboardWhenTappedAround()
         presenter = UsersPresenter(view: self)
         presenter?.presentUsers()
-        
-    //usersPresenter.setViewDelegate(usersViewDelegate: self)
-       // fetchUsers()
-    
     }
     
     // MARK: Setup
@@ -143,10 +130,11 @@ extension UsersMainViewController: UITableViewDelegate {
             print("index path of delete: \(indexPath)")
             self.presenter?.deleteUser(user: self.users[indexPath.row])
             self.presenter?.presentUsers()
+            
             DispatchQueue.main.async {
                 self.usersTable.reloadData()
-                
             }
+            
             completionHandler(true)
         }
 
@@ -182,10 +170,5 @@ extension UsersMainViewController: PresenterView {
         users = usersData
     }
 }
-//extension UsersMainViewController: UsersViewDelegate {
-//    
-//    func fetchUsers() {
-//        users = usersPresenter.presentUsers()
-//    }
-//}
+
 
