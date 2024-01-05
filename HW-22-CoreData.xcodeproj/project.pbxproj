@@ -16,6 +16,8 @@
 		03EACABD2B3992A20085AEDE /* UserItem+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03EACABB2B3992A20085AEDE /* UserItem+CoreDataClass.swift */; };
 		03EACABE2B3992A20085AEDE /* UserItem+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03EACABC2B3992A20085AEDE /* UserItem+CoreDataProperties.swift */; };
 		03EACAC22B399BC40085AEDE /* HideKeyboard+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03EACAC12B399BC40085AEDE /* HideKeyboard+Ext.swift */; };
+		03EACAC72B3CAEFA0085AEDE /* UsersPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03EACAC62B3CAEFA0085AEDE /* UsersPresenter.swift */; };
+		03EACACA2B3CAF390085AEDE /* UsersService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03EACAC92B3CAF390085AEDE /* UsersService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +32,8 @@
 		03EACABB2B3992A20085AEDE /* UserItem+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserItem+CoreDataClass.swift"; sourceTree = "<group>"; };
 		03EACABC2B3992A20085AEDE /* UserItem+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserItem+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		03EACAC12B399BC40085AEDE /* HideKeyboard+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HideKeyboard+Ext.swift"; sourceTree = "<group>"; };
+		03EACAC62B3CAEFA0085AEDE /* UsersPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersPresenter.swift; sourceTree = "<group>"; };
+		03EACAC92B3CAF390085AEDE /* UsersService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,7 +75,8 @@
 		03EACAAB2B3982190085AEDE /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				03EACAB22B3982C40085AEDE /* Service */,
+				03EACAC82B3CAF250085AEDE /* Service */,
+				03EACAC52B3CAEE70085AEDE /* Presenters */,
 				03EACAB12B3982B80085AEDE /* Extensions */,
 				03EACAB02B3982AE0085AEDE /* Models */,
 				03EACAAF2B3982A60085AEDE /* Cells */,
@@ -132,13 +137,6 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		03EACAB22B3982C40085AEDE /* Service */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Service;
-			sourceTree = "<group>";
-		};
 		03EACAC02B3992F00085AEDE /* UserItem */ = {
 			isa = PBXGroup;
 			children = (
@@ -146,6 +144,22 @@
 				03EACABC2B3992A20085AEDE /* UserItem+CoreDataProperties.swift */,
 			);
 			path = UserItem;
+			sourceTree = "<group>";
+		};
+		03EACAC52B3CAEE70085AEDE /* Presenters */ = {
+			isa = PBXGroup;
+			children = (
+				03EACAC62B3CAEFA0085AEDE /* UsersPresenter.swift */,
+			);
+			path = Presenters;
+			sourceTree = "<group>";
+		};
+		03EACAC82B3CAF250085AEDE /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				03EACAC92B3CAF390085AEDE /* UsersService.swift */,
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -219,7 +233,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				03EACAC22B399BC40085AEDE /* HideKeyboard+Ext.swift in Sources */,
+				03EACAC72B3CAEFA0085AEDE /* UsersPresenter.swift in Sources */,
 				03EACABD2B3992A20085AEDE /* UserItem+CoreDataClass.swift in Sources */,
+				03EACACA2B3CAF390085AEDE /* UsersService.swift in Sources */,
 				03EACABE2B3992A20085AEDE /* UserItem+CoreDataProperties.swift in Sources */,
 				03EACA992B397DB50085AEDE /* UsersMainViewController.swift in Sources */,
 				03EACA952B397DB50085AEDE /* AppDelegate.swift in Sources */,
