@@ -47,8 +47,12 @@ class UsersMainViewController: UIViewController {
     
     @objc private func onCreateButtonPressed(_ sender: UIButton) {
         guard let userName = textField.text, !userName.isEmpty else {
+            let alert = UIAlertController(title: "Ooops!", message: "Username cannot be empty", preferredStyle: UIAlertController.Style.alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default))
+            self.present(alert, animated: true)
             return
         }
+        
         let currentDate = Date()
         let gender = "Male"
         presenter?.createUser(name: userName, dateOfBirth: currentDate, gender: gender)
