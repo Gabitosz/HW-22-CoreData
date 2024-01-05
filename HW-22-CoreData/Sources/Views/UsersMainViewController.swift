@@ -9,10 +9,17 @@ import UIKit
 
 class UsersMainViewController: UIViewController {
     
+    var users = [UserItem]()
+    
+    var presenter:  UsersPresenter?
+    
+ //   let userService = UsersService()
+    
+   //private let usersPresenter = UsersPresenter(usersService: UsersService())
     
     // MARK: Outlets
     
-    let users = ["First User", "Second User", "Third User"]
+//    let users = ["First User", "Second User", "Third User"]
     
     lazy var textField: UITextField = {
         let textField = UITextField()
@@ -40,8 +47,26 @@ class UsersMainViewController: UIViewController {
         button.layer.shouldRasterize = true
         button.layer.rasterizationScale = UIScreen.main.scale
         button.translatesAutoresizingMaskIntoConstraints = false
+        button.addTarget(self, action: #selector(onCreateButtonPressed), for: .touchUpInside)
         return button
     }()
+    
+    @objc private func onCreateButtonPressed(_ sender: UIButton) {
+        guard let userName = textField.text, !userName.isEmpty else {
+            return
+        }
+        let currentDate = Date()
+        let gender = "Male"
+       // usersPresenter.createUser(name: userName, dateOfBirth: currentDate, gender: gender)
+        presenter?.createUser(name: userName, dateOfBirth: currentDate, gender: gender)
+        presenter?.presentUsers()
+        
+        DispatchQueue.main.async {
+            self.usersTable.reloadData()
+        }
+        
+        
+    }
     
     lazy var usersTable: UITableView = {
         let table = UITableView()
@@ -61,6 +86,12 @@ class UsersMainViewController: UIViewController {
         setupHierarchy()
         setupLayout()
         hideKeyboardWhenTappedAround()
+        presenter = UsersPresenter(view: self)
+        presenter?.presentUsers()
+        
+    //usersPresenter.setViewDelegate(usersViewDelegate: self)
+       // fetchUsers()
+    
     }
     
     // MARK: Setup
@@ -106,19 +137,55 @@ extension UsersMainViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
     }
+  
+     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let delete = UIContextualAction(style: .destructive, title: "Delete") { (action, sourceView, completionHandler) in
+            print("index path of delete: \(indexPath)")
+            self.presenter?.deleteUser(user: self.users[indexPath.row])
+            self.presenter?.presentUsers()
+            DispatchQueue.main.async {
+                self.usersTable.reloadData()
+                
+            }
+            completionHandler(true)
+        }
+
+//        let rename = UIContextualAction(style: .normal, title: "Edit") { (action, sourceView, completionHandler) in
+//            print("index path of edit: \(indexPath)")
+//            completionHandler(true)
+//        }
+        let swipeActionConfig = UISwipeActionsConfiguration(actions: [delete])
+        swipeActionConfig.performsFirstActionWithFullSwipe = false
+        return swipeActionConfig
+    }
+   
 }
 
 extension UsersMainViewController: UITableViewDataSource {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         users.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "defaultCell", for: indexPath) 
-        cell.textLabel?.text = users[indexPath.row]
+        cell.textLabel?.text = users[indexPath.row].name
+        print(users[indexPath.row].dateOfBirth)
         return cell
     }
     
     
 }
+
+extension UsersMainViewController: PresenterView {
+    func fetch(usersData: [UserItem]) {
+        users = usersData
+    }
+}
+//extension UsersMainViewController: UsersViewDelegate {
+//    
+//    func fetchUsers() {
+//        users = usersPresenter.presentUsers()
+//    }
+//}
 
