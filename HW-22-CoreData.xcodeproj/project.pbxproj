@@ -11,8 +11,6 @@
 		030040DA2B5BD4C200024A8A /* UserDetailGenderPicker+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 030040D92B5BD4C200024A8A /* UserDetailGenderPicker+Ext.swift */; };
 		030040DC2B5BDB2400024A8A /* UsersMainViewTableView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 030040DB2B5BDB2400024A8A /* UsersMainViewTableView+Ext.swift */; };
 		033673A62B484CD800CC1864 /* UserDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 033673A52B484CD800CC1864 /* UserDetailViewController.swift */; };
-		033673A82B4C872400CC1864 /* UserDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 033673A72B4C872400CC1864 /* UserDetailPresenter.swift */; };
-		033673AA2B4C874700CC1864 /* UserDetailDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 033673A92B4C874700CC1864 /* UserDetailDelegate.swift */; };
 		033673AE2B55149E00CC1864 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 033673AD2B55149E00CC1864 /* Colors.swift */; };
 		0348E4B82B5C13AA00855825 /* KeyboardObservers+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0348E4B72B5C13AA00855825 /* KeyboardObservers+Ext.swift */; };
 		038D4A792B551C3700DD0B9D /* BottomTextFieldBorder+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 038D4A782B551C3700DD0B9D /* BottomTextFieldBorder+Ext.swift */; };
@@ -33,8 +31,6 @@
 		030040D92B5BD4C200024A8A /* UserDetailGenderPicker+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDetailGenderPicker+Ext.swift"; sourceTree = "<group>"; };
 		030040DB2B5BDB2400024A8A /* UsersMainViewTableView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UsersMainViewTableView+Ext.swift"; sourceTree = "<group>"; };
 		033673A52B484CD800CC1864 /* UserDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailViewController.swift; sourceTree = "<group>"; };
-		033673A72B4C872400CC1864 /* UserDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailPresenter.swift; sourceTree = "<group>"; };
-		033673A92B4C874700CC1864 /* UserDetailDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailDelegate.swift; sourceTree = "<group>"; };
 		033673AD2B55149E00CC1864 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		0348E4B72B5C13AA00855825 /* KeyboardObservers+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KeyboardObservers+Ext.swift"; sourceTree = "<group>"; };
 		038D4A782B551C3700DD0B9D /* BottomTextFieldBorder+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BottomTextFieldBorder+Ext.swift"; sourceTree = "<group>"; };
@@ -172,8 +168,6 @@
 			isa = PBXGroup;
 			children = (
 				03EACAC62B3CAEFA0085AEDE /* UsersPresenter.swift */,
-				033673A72B4C872400CC1864 /* UserDetailPresenter.swift */,
-				033673A92B4C874700CC1864 /* UserDetailDelegate.swift */,
 			);
 			path = Presenters;
 			sourceTree = "<group>";
@@ -256,12 +250,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				030040DA2B5BD4C200024A8A /* UserDetailGenderPicker+Ext.swift in Sources */,
-				033673AA2B4C874700CC1864 /* UserDetailDelegate.swift in Sources */,
 				03EACAC22B399BC40085AEDE /* HideKeyboard+Ext.swift in Sources */,
 				03EACAC72B3CAEFA0085AEDE /* UsersPresenter.swift in Sources */,
 				03EACABD2B3992A20085AEDE /* UserItem+CoreDataClass.swift in Sources */,
 				03EACACA2B3CAF390085AEDE /* UsersService.swift in Sources */,
-				033673A82B4C872400CC1864 /* UserDetailPresenter.swift in Sources */,
 				03EACABE2B3992A20085AEDE /* UserItem+CoreDataProperties.swift in Sources */,
 				03EACA992B397DB50085AEDE /* UsersMainViewController.swift in Sources */,
 				033673AE2B55149E00CC1864 /* Colors.swift in Sources */,
