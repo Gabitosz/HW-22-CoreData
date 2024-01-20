@@ -21,7 +21,7 @@ class UsersPresenter {
         self.view?.fetch(usersData: usersService.getAllUsers())
     }
     
-    func createUser(name: String, dateOfBirth: Date, gender: String) {
+    func createUser(name: String, dateOfBirth: Date?, gender: String) {
         usersService.create(name: name, dateOfBirth: dateOfBirth, gender: gender)
     }
     
@@ -32,7 +32,6 @@ class UsersPresenter {
     func deleteUser(user: UserItem) {
         usersService.delete(user: user)
     }
-    
 }
 
 protocol PresenterView: AnyObject {
