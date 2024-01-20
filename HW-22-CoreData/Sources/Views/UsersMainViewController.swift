@@ -11,15 +11,15 @@ class UsersMainViewController: UIViewController {
     
     var users = [UserItem]()
     
-    var presenter:  UsersPresenter?
+    var presenter: UsersPresenter?
     
     // MARK: Outlets
     
-    lazy var textField: UITextField = {
+    private lazy var textField: UITextField = {
         let textField = UITextField()
         textField.layer.cornerRadius = 20
         textField.textColor = .blue
-        textField.layer.borderColor = CGColor(red: 208 / 255, green: 208 / 255, blue: 245 / 255, alpha: 1)
+        textField.layer.borderColor = AppColor.lightPurple.uiColor.cgColor
         textField.layer.borderWidth = 3
         textField.placeholder = "Enter username"
         textField.textAlignment = .center
@@ -27,9 +27,9 @@ class UsersMainViewController: UIViewController {
         return textField
     }()
     
-    lazy var addButton: UIButton = {
+    private lazy var addButton: UIButton = {
         let button = UIButton()
-        button.backgroundColor = UIColor(red: 108 / 255, green: 117 / 255, blue: 207 / 255, alpha: 1)
+        button.backgroundColor = AppColor.purple.uiColor
         button.setTitle("Add", for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.titleLabel?.textAlignment = .center
@@ -45,24 +45,6 @@ class UsersMainViewController: UIViewController {
         return button
     }()
     
-    @objc private func onCreateButtonPressed(_ sender: UIButton) {
-        guard let userName = textField.text, !userName.isEmpty else {
-            let alert = UIAlertController(title: "Ooops!", message: "Username cannot be empty", preferredStyle: UIAlertController.Style.alert)
-            alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default))
-            self.present(alert, animated: true)
-            return
-        }
-        
-        let currentDate = Date()
-        let gender = "Male"
-        presenter?.createUser(name: userName, dateOfBirth: currentDate, gender: gender)
-        presenter?.presentUsers()
-        textField.text = ""
-        DispatchQueue.main.async {
-            self.usersTable.reloadData()
-        }
-    }
-    
     lazy var usersTable: UITableView = {
         let table = UITableView()
         table.translatesAutoresizingMaskIntoConstraints = false
@@ -76,13 +58,21 @@ class UsersMainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureView()
+        setupView()
         setupNavigationBar()
         setupHierarchy()
         setupLayout()
         hideKeyboardWhenTappedAround()
+        setupKeyboardObservers()
         presenter = UsersPresenter(view: self)
         presenter?.presentUsers()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        DispatchQueue.main.async {
+            self.presenter?.presentUsers()
+            self.usersTable.reloadData()
+        }
     }
     
     // MARK: Setup
@@ -92,7 +82,7 @@ class UsersMainViewController: UIViewController {
         views.forEach { view.addSubview($0) }
     }
     
-    private func configureView() {
+    private func setupView() {
         view.backgroundColor = .systemBackground
     }
     
@@ -102,7 +92,9 @@ class UsersMainViewController: UIViewController {
     }
     
     private func setupLayout() {
+        
         NSLayoutConstraint.activate([
+            
             textField.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 10),
             textField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
             textField.widthAnchor.constraint(equalToConstant: 200),
@@ -118,55 +110,28 @@ class UsersMainViewController: UIViewController {
             usersTable.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
             usersTable.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
             
-            
         ])
     }
     
-}
-
-extension UsersMainViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-    }
-  
-     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let delete = UIContextualAction(style: .destructive, title: "Delete") { (action, sourceView, completionHandler) in
-            print("index path of delete: \(indexPath)")
-            self.presenter?.deleteUser(user: self.users[indexPath.row])
-            self.presenter?.presentUsers()
-            
-            DispatchQueue.main.async {
-                self.usersTable.reloadData()
-            }
-            
-            completionHandler(true)
+    // MARK: Actions
+    
+    @objc private func onCreateButtonPressed(_ sender: UIButton) {
+        
+        guard let userName = textField.text, !userName.isEmpty else {
+            let alert = UIAlertController(title: "Ooops!", message: "Username cannot be empty", preferredStyle: UIAlertController.Style.alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default))
+            self.present(alert, animated: true)
+            return
         }
-
-//        let rename = UIContextualAction(style: .normal, title: "Edit") { (action, sourceView, completionHandler) in
-//            print("index path of edit: \(indexPath)")
-//            completionHandler(true)
-//        }
-        let swipeActionConfig = UISwipeActionsConfiguration(actions: [delete])
-        swipeActionConfig.performsFirstActionWithFullSwipe = false
-        return swipeActionConfig
+        
+        let gender = ""
+        presenter?.createUser(name: userName, dateOfBirth: nil, gender: gender)
+        presenter?.presentUsers()
+        textField.text = ""
+        DispatchQueue.main.async {
+            self.usersTable.reloadData()
+        }
     }
-   
-}
-
-extension UsersMainViewController: UITableViewDataSource {
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        users.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "defaultCell", for: indexPath) 
-        cell.textLabel?.text = users[indexPath.row].name
-        print(users[indexPath.row].dateOfBirth)
-        return cell
-    }
-    
-    
 }
 
 extension UsersMainViewController: PresenterView {

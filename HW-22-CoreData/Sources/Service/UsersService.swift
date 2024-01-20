@@ -5,7 +5,6 @@
 //  Created by Gabriel Zdravkovici on 27.12.2023.
 //
 
-
 import UIKit
 
 class UsersService {
@@ -14,7 +13,7 @@ class UsersService {
     
     func getAllUsers() -> [UserItem] {
         do {
-           return try context.fetch(UserItem.fetchRequest())
+            return try context.fetch(UserItem.fetchRequest())
             
         } catch {
             print(error)
@@ -22,7 +21,7 @@ class UsersService {
         return [UserItem()]
     }
     
-    func create(name: String, dateOfBirth: Date, gender: String) {
+    func create(name: String, dateOfBirth: Date?, gender: String) {
         
         let newUser = UserItem(context: context)
         newUser.name = name
@@ -31,7 +30,7 @@ class UsersService {
         
         do {
             try context.save()
-           
+            
         } catch {
             print(error)
         }
@@ -60,6 +59,3 @@ class UsersService {
     }
 }
 
-protocol UsersViewDelegate: NSObjectProtocol {
-    func fetchUsers()
-}
